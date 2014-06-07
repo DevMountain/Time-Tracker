@@ -28,6 +28,8 @@
 		716F226819421CBE0002235F /* TTDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716F226619421CBE0002235F /* TTDetailViewController.xib */; };
 		716F226B19421DE00002235F /* TTDetailDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 716F226A19421DE00002235F /* TTDetailDataSource.m */; };
 		716F226D194227F60002235F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 716F226C194227F60002235F /* MessageUI.framework */; };
+		716F227119435DC10002235F /* TTCustomEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 716F226F19435DC10002235F /* TTCustomEntryViewController.m */; };
+		716F227219435DC10002235F /* TTCustomEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716F227019435DC10002235F /* TTCustomEntryViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,9 @@
 		716F226919421DE00002235F /* TTDetailDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDetailDataSource.h; sourceTree = "<group>"; };
 		716F226A19421DE00002235F /* TTDetailDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDetailDataSource.m; sourceTree = "<group>"; };
 		716F226C194227F60002235F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		716F226E19435DC10002235F /* TTCustomEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCustomEntryViewController.h; sourceTree = "<group>"; };
+		716F226F19435DC10002235F /* TTCustomEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCustomEntryViewController.m; sourceTree = "<group>"; };
+		716F227019435DC10002235F /* TTCustomEntryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TTCustomEntryViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +211,9 @@
 				716F226619421CBE0002235F /* TTDetailViewController.xib */,
 				716F226919421DE00002235F /* TTDetailDataSource.h */,
 				716F226A19421DE00002235F /* TTDetailDataSource.m */,
+				716F226E19435DC10002235F /* TTCustomEntryViewController.h */,
+				716F226F19435DC10002235F /* TTCustomEntryViewController.m */,
+				716F227019435DC10002235F /* TTCustomEntryViewController.xib */,
 			);
 			name = "Detail View";
 			sourceTree = "<group>";
@@ -286,6 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				716F227219435DC10002235F /* TTCustomEntryViewController.xib in Resources */,
 				7116F78019421700006C8F06 /* InfoPlist.strings in Resources */,
 				7116F78819421700006C8F06 /* Images.xcassets in Resources */,
 				716F226819421CBE0002235F /* TTDetailViewController.xib in Resources */,
@@ -311,6 +320,7 @@
 				7116F7A919421775006C8F06 /* TTListDataSource.m in Sources */,
 				7116F7AE1942178C006C8F06 /* Project.m in Sources */,
 				7116F7B219421A22006C8F06 /* Entry.m in Sources */,
+				716F227119435DC10002235F /* TTCustomEntryViewController.m in Sources */,
 				7116F7AF1942178C006C8F06 /* ProjectController.m in Sources */,
 				7116F78619421700006C8F06 /* TTAppDelegate.m in Sources */,
 				716F226719421CBE0002235F /* TTDetailViewController.m in Sources */,

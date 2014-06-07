@@ -11,6 +11,8 @@
 
 #import "TTDetailDataSource.h"
 
+#import "TTCustomEntryViewController.h"
+
 #import <MessageUI/MessageUI.h>
 
 @interface TTDetailViewController () <UITableViewDelegate, UITextFieldDelegate, MFMailComposeViewControllerDelegate>
@@ -39,6 +41,14 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -59,6 +69,11 @@
 }
 
 - (IBAction)add:(id)sender {
+    
+    TTCustomEntryViewController *entryViewController = [TTCustomEntryViewController new];
+    entryViewController.project = self.project;
+    
+    [self presentViewController:entryViewController animated:YES completion:nil];
     
 }
 
@@ -95,6 +110,20 @@
     
     MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
     mailViewController.mailComposeDelegate = self;
+    
+    NSString *messageBody;
+    
+    for (Entry *entry in self.project.entries) {
+        
+        if (messageBody) {
+            messageBody = [NSString stringWithFormat:@"%@\n%@ to %@\n", messageBody, entry.startTime, entry.endTime];
+        } else {
+            messageBody = [NSString stringWithFormat:@"\n%@ to %@\n", entry.startTime, entry.endTime];
+        
+        }
+    }
+
+    [mailViewController setMessageBody:messageBody isHTML:NO];
     
     [self presentViewController:mailViewController animated:YES completion:nil];
     

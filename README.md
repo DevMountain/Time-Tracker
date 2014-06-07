@@ -62,7 +62,7 @@ An iOS app with time tracking
   - Feel free to format them if you'd like it to look pretty 
   - http://gtiapps.com/?p=1086
 
-###Step 6: Add a Clock In method to the Project object
+###Step 6: Add a Clock In and Clock Out method to the Project object
 - Add a method "startNewEntry"
   - In that method create a new entry, and set the start time to now
   - Store that entry as a "currentEntry" property

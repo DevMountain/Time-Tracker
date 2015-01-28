@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		302D7ECE1A7426A70083DE52 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D7ECD1A7426A70083DE52 /* ListViewController.m */; };
+		302D7ED41A74318E0083DE52 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D7ED31A74318E0083DE52 /* Entry.m */; };
+		302D7ED71A7438730083DE52 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D7ED61A7438730083DE52 /* Project.m */; };
+		302D7EDA1A7438A20083DE52 /* ProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D7ED91A7438A20083DE52 /* ProjectController.m */; };
+		305530CA1A75E2910038451F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305530C81A75E2910038451F /* DetailViewController.m */; };
+		305530CB1A75E2910038451F /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305530C91A75E2910038451F /* DetailViewController.xib */; };
+		305530CF1A75E8A90038451F /* CustomEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305530CD1A75E8A90038451F /* CustomEntryViewController.m */; };
+		305530D01A75E8A90038451F /* CustomEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305530CE1A75E8A90038451F /* CustomEntryViewController.xib */; };
 		7116F77619421700006C8F06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7116F77519421700006C8F06 /* Foundation.framework */; };
 		7116F77819421700006C8F06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7116F77719421700006C8F06 /* CoreGraphics.framework */; };
 		7116F77A19421700006C8F06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7116F77919421700006C8F06 /* UIKit.framework */; };
@@ -32,6 +40,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		302D7ECC1A7426A70083DE52 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListViewController.h; path = ../ListViewController.h; sourceTree = "<group>"; };
+		302D7ECD1A7426A70083DE52 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListViewController.m; path = ../ListViewController.m; sourceTree = "<group>"; };
+		302D7ED21A74318E0083DE52 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
+		302D7ED31A74318E0083DE52 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
+		302D7ED51A7438730083DE52 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
+		302D7ED61A7438730083DE52 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
+		302D7ED81A7438A20083DE52 /* ProjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectController.h; sourceTree = "<group>"; };
+		302D7ED91A7438A20083DE52 /* ProjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectController.m; sourceTree = "<group>"; };
+		305530C71A75E2910038451F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		305530C81A75E2910038451F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		305530C91A75E2910038451F /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		305530CC1A75E8A90038451F /* CustomEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomEntryViewController.h; sourceTree = "<group>"; };
+		305530CD1A75E8A90038451F /* CustomEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomEntryViewController.m; sourceTree = "<group>"; };
+		305530CE1A75E8A90038451F /* CustomEntryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomEntryViewController.xib; sourceTree = "<group>"; };
 		7116F77219421700006C8F06 /* Time-Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Time-Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7116F77519421700006C8F06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7116F77719421700006C8F06 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -74,6 +96,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		302D7ECA1A7425CE0083DE52 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				302D7ED21A74318E0083DE52 /* Entry.h */,
+				302D7ED31A74318E0083DE52 /* Entry.m */,
+				302D7ED51A7438730083DE52 /* Project.h */,
+				302D7ED61A7438730083DE52 /* Project.m */,
+				302D7ED81A7438A20083DE52 /* ProjectController.h */,
+				302D7ED91A7438A20083DE52 /* ProjectController.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		302D7ECB1A74266D0083DE52 /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				302D7ECC1A7426A70083DE52 /* ListViewController.h */,
+				302D7ECD1A7426A70083DE52 /* ListViewController.m */,
+				305530C71A75E2910038451F /* DetailViewController.h */,
+				305530C81A75E2910038451F /* DetailViewController.m */,
+				305530C91A75E2910038451F /* DetailViewController.xib */,
+				305530CC1A75E8A90038451F /* CustomEntryViewController.h */,
+				305530CD1A75E8A90038451F /* CustomEntryViewController.m */,
+				305530CE1A75E8A90038451F /* CustomEntryViewController.xib */,
+			);
+			name = ListView;
+			sourceTree = "<group>";
+		};
 		7116F76919421700006C8F06 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +159,8 @@
 			children = (
 				7116F78419421700006C8F06 /* TTAppDelegate.h */,
 				7116F78519421700006C8F06 /* TTAppDelegate.m */,
+				302D7ECA1A7425CE0083DE52 /* Model */,
+				302D7ECB1A74266D0083DE52 /* ListView */,
 				7116F78719421700006C8F06 /* Images.xcassets */,
 				7116F77C19421700006C8F06 /* Supporting Files */,
 			);
@@ -221,6 +273,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7116F78019421700006C8F06 /* InfoPlist.strings in Resources */,
+				305530CB1A75E2910038451F /* DetailViewController.xib in Resources */,
+				305530D01A75E8A90038451F /* CustomEntryViewController.xib in Resources */,
 				7116F78819421700006C8F06 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +296,12 @@
 			files = (
 				7116F78619421700006C8F06 /* TTAppDelegate.m in Sources */,
 				7116F78219421700006C8F06 /* main.m in Sources */,
+				305530CF1A75E8A90038451F /* CustomEntryViewController.m in Sources */,
+				302D7ED41A74318E0083DE52 /* Entry.m in Sources */,
+				302D7EDA1A7438A20083DE52 /* ProjectController.m in Sources */,
+				302D7ED71A7438730083DE52 /* Project.m in Sources */,
+				302D7ECE1A7426A70083DE52 /* ListViewController.m in Sources */,
+				305530CA1A75E2910038451F /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +498,7 @@
 				7116F7A019421700006C8F06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7116F7A119421700006C8F06 /* Build configuration list for PBXNativeTarget "Time-TrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +507,7 @@
 				7116F7A319421700006C8F06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,7 @@
 //
 
 #import "TTAppDelegate.h"
+#import "ListViewController.h"
 
 @implementation TTAppDelegate
 
@@ -14,6 +15,11 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    ListViewController *viewController = [ListViewController new];
+    UINavigationController *navcontroller = [[UINavigationController alloc] initWithRootViewController:viewController];
+    self.window.rootViewController = navcontroller;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

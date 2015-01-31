@@ -11,6 +11,14 @@
 
 @interface ProjectController : NSObject
 
+@property (nonatomic, strong, readonly) NSArray *projects;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSArray *entries;
 
++(ProjectController *)sharedInstance;
+
+-(void)addProjectWithTitle:(Project *)project;
+-(void)removeProject:(Project *)project;
+-(void)save;
 
 @end

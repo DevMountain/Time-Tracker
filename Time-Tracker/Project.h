@@ -2,28 +2,18 @@
 //  Project.h
 //  Time-Tracker
 //
-//  Created by Daniel Bladh on 1/24/15.
+//  Created by Daniel Bladh on 1/31/15.
 //  Copyright (c) 2015 DevMountain. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "Entry.h"
+#import <CoreData/CoreData.h>
 
-@interface Project : NSObject
+@class Entry;
 
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSArray *entries;
+@interface Project : NSManagedObject
 
--(NSDictionary *)projectDictionary;
--(id)initWithDictionary: (NSDictionary *)dictionary;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) Entry *entries;
 
--(NSString *)projectTime;
-
--(void)startNewEntry;
--(void)endCurrentEntry;
-
--(void)addEntry:(Entry *)entry;
--(void)removeEntry:(Entry *)entry;
-
--(void)synchronize;
 @end

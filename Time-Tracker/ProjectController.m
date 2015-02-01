@@ -13,12 +13,7 @@
 #import "Entry.h"
 #import "Stack.h"
 
-//static NSString* const projectListKey= @"projectList";
-
 @interface ProjectController ()
-
-//@property (nonatomic, strong) NSArray* project;
-//@property (nonatomic, strong) Entry *currentEntry;
 
 @end
 
@@ -33,22 +28,44 @@
     return sharedInstance;
 }
 
-//-(void)setProjects:(NSArray *)projects{
-//    _projects = projects;
-//    
-//    [self synchronize];
-//}
-//
-//-(void)addProject:(Project *)project{
-//    if(!project){
-//        return;
-//    }
-//    NSMutableArray *mutableProject = [[NSMutableArray alloc] initWithArray:self.projects];
-//}
-
--(void)addEntry:(Entry *)entry{
+- (void)addProjectWithTitle:(NSString*)title {
     
-    // THIS NEEDS TO BE UPDATED TO SAVE ENTRY TO CORE DATA
+    // This is how you create new instances of the objects you're storing in Core Data
+    Project *project = [NSEntityDescription insertNewObjectForEntityForName:@"Project" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    
+    project.title = title;
+    
+    [self save];
+}
+
+- (void)removeProject:(Project *)project {
+    
+   // This is how you remove an object from Core Data
+   [[Stack sharedInstance].managedObjectContext deleteObject:project];
+    
+    [self save];
+    
+}
+
+// ** Basically, instead of having an array of your objects inside this ProjectController, you'll have access to
+// different "get" or "fetch" methods that will grab it from Core Data and hand it back so you can use it **
+- (NSArray *)getProjects {
+    
+    // This is how you "fetch" objects from core data so you can use them in your app
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Project"];
+    NSArray *array = [[Stack sharedInstance].managedObjectContext executeFetchRequest:request error:nil];
+
+    return array;
+}
+
+
+- (void)addEntryToProject:(Project *)project withStartTime:(NSDate*)startTime andEndTime:(NSDate*)endTime {
+    
+    // You'll have to update this to work with Core Data like the methods above do
+    // note that adding an try to a project will be slightly more difficult than the example above
+    // because its a relation, not just a simple string
+   
+    
     
 //    NSMutableArray *mutableEntries = [[NSMutableArray alloc] initWithArray:self.entries];
 //    [mutableEntries addObject:entry];
@@ -56,47 +73,15 @@
 //    self.entries = mutableEntries;
 }
 
-// I THINK THESE WILL GET MOVED TO A VIEW CONTROLLER
-//-(void)startNewEntry{
-//    Entry *entry = [Entry new];
-//    entry.startTime = [NSDate date];
-//    
-//    self.currentEntry = entry;
-//    
-//    [self addEntry:entry];
-//}
-//
-//- (void)endCurrentEntry {
-//    
-//    self.currentEntry.endTime = [NSDate date];
-//    [self save];
-//}
-
-
-- (void)addProjectWithTitle:(NSString*)title{
+- (NSArray*)getEntriesForProject:(Project *)project {
     
-    // NEEDS TO BE UPDATED TO INCLUDE CORE DATA WAY OF SAVING DATA
+    // Same thing, you'll have to implement this
     
-//    Project *newProject = [NSEntityDescription insertNewObjectForEntityForName:@"Project" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
-//    
-//    newProject.title = title;
-//    
-//    [self save];
-}
-
-
--(void)removeProject:(Project *)project {
-    
-    // NEEDS TO BE UPDATED TO INCLUDE CORE DATA WAY OF DELETING DATA
-    
-//    [[Stack sharedInstance].managedObjectContext deleteObject:project];
-//    
-//    [self save];
-    
+    return nil;
 }
 
 -(void)save{
-    // NOT SURE IF THIS IS STILL NEEEDED
+    
     [[Stack sharedInstance].managedObjectContext save:NULL];
 }
 @end

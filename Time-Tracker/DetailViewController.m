@@ -17,15 +17,27 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UITableView *detailTableView;
 
+@property (strong, nonatomic) NSArray *entries;
+@property (strong, nonatomic) NSDate *entryStartTime;
+@property (strong, nonatomic) NSDate *entryEndTime;
+
 @end
 
 @implementation DetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.timeLabel.text = [self projectTime];
-    self.titleTextField.text= self.project.title;
+    
+    // since we have to create objects using Core Data now, a new project will result in self.project being nil
+    if (self.project != nil) {
+        
+        self.timeLabel.text = [self projectTime];
+        self.titleTextField.text= self.project.title;
+        
+        // here we're telling our ProjectController to go into core Data give us back all the entries for our project
+        self.entries = [[ProjectController sharedInstance] getEntriesForProject:self.project];
+    }
+    
     self.detailTableView.dataSource = self;
     
     UITableView* detailTableView= [[UITableView alloc] initWithFrame:self.view.bounds];
@@ -33,18 +45,19 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0; //[self.project.entries count];
+    
+    // we have to take into consideration now that self.entries will be nil if it's a new project
+    if (self.entries != nil) return self.entries.count;
+    else return 0;
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EntryCell"];
-//    if (cell == nil) { // I THINK this won't ever happen...
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"EntryCell"];
-//    }
     
-//    Entry *entry = [self.project entries][indexPath.row];
-//    
-//    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", entry.startTime, entry.endTime];
+    // I *THINK* this should still work
+    Entry *entry = self.entries[indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", entry.startTime, entry.endTime];
     
     return cell;
 }
@@ -56,37 +69,25 @@
     
 }
 - (IBAction)clockIn:(id)sender {
-//    [self.project startNewEntry];
-//    [self.detailTableView reloadData];
+    
+    // When you clock in/out you just need to store the time so that when you tell your ProjectController to add an entry
+    // to the project you have a start and end time to send to it
+    self.entryStartTime = [NSDate new];
 }
 - (IBAction)clockOut:(id)sender {
-//    [self.project endCurrentEntry];
-//    [self.detailTableView reloadData];
+
+    self.entryEndTime = [NSDate new];
 }
 - (IBAction)report:(id)sender {
+    
 }
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [textField resignFirstResponder];
-    return YES;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(NSInteger)detailTableView :(UITableView *)detailTableView numberOfRowsInSection:(NSInteger)section{
-    return 0; // [self.project.entries count];
-}
-
 
 -(NSString *)projectTime {
     
     NSInteger totalHours= 0;
     NSInteger totalMinutes= 0;
     
-    for (Entry *entry in self.project.entries) { // I DON'T THINK THIS IS RIGHT
+    for (Entry *entry in self.entries) {
         
         NSTimeInterval  distanceBetweenDates= [entry.endTime timeIntervalSinceDate:entry.startTime];
         
@@ -107,6 +108,19 @@
     return [NSString stringWithFormat:@"%@:%@", hourString, minutesString];
     
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+
 
 /*
 #pragma mark - Navigation

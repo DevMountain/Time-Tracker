@@ -48,9 +48,9 @@
 
 -(void)newProject: (id)sender{
     
-    Project *newProject = [Project new];
+//    Project *newProject = [Project new]; // We can't instantiate objects like this anymore because of Core Data
     DetailViewController *detailViewController = [DetailViewController new];
-    detailViewController.project= newProject;
+//    detailViewController.project= newProject;
     
     [self.navigationController pushViewController:detailViewController animated:YES];
 }

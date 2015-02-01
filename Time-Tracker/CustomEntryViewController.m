@@ -8,6 +8,7 @@
 
 #import "CustomEntryViewController.h"
 #import "DetailViewController.h"
+#import "Entry.h"
 
 @interface CustomEntryViewController ()
 @property (weak, nonatomic) IBOutlet UIDatePicker *startTimePicker;
@@ -36,7 +37,7 @@
     newEntry.endTime =  self.endTimePicker.date;
     
     DetailViewController *dvc = [DetailViewController new];
-    [dvc.project addEntry:newEntry];
+//    [dvc.project addEntry:newEntry];
     NSLog(@"%@", newEntry.startTime);
     
     [self.navigationController pushViewController:dvc animated:YES];

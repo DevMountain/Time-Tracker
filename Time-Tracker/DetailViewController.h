@@ -11,6 +11,7 @@
 #import "ProjectController.h"
 
 @interface DetailViewController : UIViewController
+
 @property (nonatomic, strong) Project* project;
 
 @end

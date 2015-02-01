@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.timeLabel.text = [self.project projectTime];
+    self.timeLabel.text = [self projectTime];
     self.titleTextField.text= self.project.title;
     self.detailTableView.dataSource = self;
     
@@ -33,34 +33,35 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.project.entries count];
+    return 0; //[self.project.entries count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EntryCell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"EntryCell"];
-    }
+//    if (cell == nil) { // I THINK this won't ever happen...
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"EntryCell"];
+//    }
     
-    Entry *entry = [self.project entries][indexPath.row];
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", entry.startTime, entry.endTime];
+//    Entry *entry = [self.project entries][indexPath.row];
+//    
+//    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", entry.startTime, entry.endTime];
     
     return cell;
 }
 
 - (IBAction)add:(id)sender {
+    
     CustomEntryViewController* customEntryController= [CustomEntryViewController new];
     [self.navigationController pushViewController:customEntryController animated:YES];
     
 }
 - (IBAction)clockIn:(id)sender {
-    [self.project startNewEntry];
-    [self.detailTableView reloadData];
+//    [self.project startNewEntry];
+//    [self.detailTableView reloadData];
 }
 - (IBAction)clockOut:(id)sender {
-    [self.project endCurrentEntry];
-    [self.detailTableView reloadData];
+//    [self.project endCurrentEntry];
+//    [self.detailTableView reloadData];
 }
 - (IBAction)report:(id)sender {
 }
@@ -76,7 +77,7 @@
 }
 
 -(NSInteger)detailTableView :(UITableView *)detailTableView numberOfRowsInSection:(NSInteger)section{
-    return [self.project.entries count];
+    return 0; // [self.project.entries count];
 }
 
 
@@ -85,7 +86,7 @@
     NSInteger totalHours= 0;
     NSInteger totalMinutes= 0;
     
-    for (Entry *entry in self.project.entries) {
+    for (Entry *entry in self.project.entries) { // I DON'T THINK THIS IS RIGHT
         
         NSTimeInterval  distanceBetweenDates= [entry.endTime timeIntervalSinceDate:entry.startTime];
         

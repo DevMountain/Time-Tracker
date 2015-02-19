@@ -63,7 +63,7 @@ An iOS app with time tracking
 - Add a public ```Project``` property to the ```DetailViewController```
 - In the didSelectRow method in the ```ListViewController``` set the ```DetailViewController```'s ```Project``` property as the ```project``` in the ```ProjectController```'s project list at the index selected
 - Add a public ```Project``` property to the ```DetailTableViewDatasource```
-- In the viewDidLoad method of the ```DetailViewController``` set the ```dataSource```'s ```project``` property to ```self.property```
+- In the viewDidLoad method of the ```DetailViewController``` set the ```dataSource```'s ```project``` property to ```self.project```
 - NumberOfRows should be equal to number of entries
 - Set the cell's ```textLabel.text``` to the ```entry```'s start and end date
   - Feel free to format them if you'd like it to look pretty: [http://gtiapps.com/?p=1086](http://gtiapps.com/?p=1086)

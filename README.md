@@ -48,7 +48,7 @@ An iOS app with time tracking
   - Report
 
 ###Step 5: Add UITextFieldDelegate methods to capture the title
-- Add the textFieldShould return method to dismiss the Keyboard
+- Add the textFieldShouldReturn method to dismiss the Keyboard
 - Add a textFieldShouldEndEditing method to store the text of the ```titleTextField``` as the ```project.title```
 - Wire files owner as the delegate of the text field in the XIB file
 

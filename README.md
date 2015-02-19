@@ -21,7 +21,7 @@ An iOS app with time tracking
 - Create a ```Project``` class with necessary properties
   - Each ```Project``` instance should hold an array of ```Entries``
   - You'll need an ```AddEntry:``` and ```RemoveEntry:``` method
-- Create an ```Entry``` (word periods) class with necessary properties
+- Create an ```Entry``` (word period) class with necessary properties
 - Create a ```ProjectController``` singleton class (add the instancetype method)
   - The ```ProjectController``` should hold an array of ```Project``` instances
   - You'll need an ```AddProject:``` and ```RemoveProject:``` method

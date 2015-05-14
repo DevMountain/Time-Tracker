@@ -21,7 +21,7 @@ An iOS app with time tracking
 - Create a ```Project``` class with necessary properties
   - Each ```Project``` instance should hold an array of ```Entries``
   - You'll need an ```AddEntry:``` and ```RemoveEntry:``` method
-- Create an ```Entry``` (word periods) class with necessary properties
+- Create an ```Entry``` (work period) class with necessary properties
 - Create a ```ProjectController``` singleton class (add the instancetype method)
   - The ```ProjectController``` should hold an array of ```Project``` instances
   - You'll need an ```AddProject:``` and ```RemoveProject:``` method
@@ -48,7 +48,7 @@ An iOS app with time tracking
   - Report
 
 ###Step 5: Add UITextFieldDelegate methods to capture the title
-- Add the textFieldShould return method to dismiss the Keyboard
+- Add the textFieldShouldReturn method to dismiss the Keyboard
 - Add a textFieldShouldEndEditing method to store the text of the ```titleTextField``` as the ```project.title```
 - Wire files owner as the delegate of the text field in the XIB file
 
@@ -63,7 +63,7 @@ An iOS app with time tracking
 - Add a public ```Project``` property to the ```DetailViewController```
 - In the didSelectRow method in the ```ListViewController``` set the ```DetailViewController```'s ```Project``` property as the ```project``` in the ```ProjectController```'s project list at the index selected
 - Add a public ```Project``` property to the ```DetailTableViewDatasource```
-- In the viewDidLoad method of the ```DetailViewController``` set the ```dataSource```'s ```project``` property to ```self.property```
+- In the viewDidLoad method of the ```DetailViewController``` set the ```dataSource```'s ```project``` property to ```self.project```
 - NumberOfRows should be equal to number of entries
 - Set the cell's ```textLabel.text``` to the ```entry```'s start and end date
   - Feel free to format them if you'd like it to look pretty: [http://gtiapps.com/?p=1086](http://gtiapps.com/?p=1086)

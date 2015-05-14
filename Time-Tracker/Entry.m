@@ -13,6 +13,8 @@ static NSString * const endTimeKey = @"endTime";
 
 @implementation Entry
 
+
+//Create initWithDictionart Method
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
@@ -24,6 +26,7 @@ static NSString * const endTimeKey = @"endTime";
     return self;
 }
 
+//Create a dictionary 
 - (NSDictionary *)entryDictionary {
 
     NSMutableDictionary *entryDictionary = [NSMutableDictionary new];

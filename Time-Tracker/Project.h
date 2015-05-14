@@ -11,9 +11,11 @@
 
 @interface Project : NSObject
 
+//Create a title and entires property
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSArray *entries;
 
+//Make methods public
 - (NSDictionary *)projectDictionary;
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

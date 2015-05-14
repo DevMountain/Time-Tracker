@@ -32,6 +32,9 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+//Create a save button and save the start time and the end time
+//add entry to the project
+//dismiss the VC
 - (IBAction)save:(id)sender {
 
     Entry *entry = [Entry new];
@@ -43,7 +46,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 
 }
-
+//dismiss the viewController
 - (IBAction)cancel:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];

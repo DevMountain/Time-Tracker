@@ -17,6 +17,7 @@
 
 @interface TTDetailViewController () <UITableViewDelegate, UITextFieldDelegate, MFMailComposeViewControllerDelegate>
 
+//Link up properties
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) IBOutlet UILabel *timeLabel;
 @property (nonatomic, strong) IBOutlet UITextField *titleField;
@@ -32,6 +33,7 @@
 
 @implementation TTDetailViewController
 
+//instatiate a new dataSource
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -41,6 +43,7 @@
     return self;
 }
 
+//reload the tableViews data
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:animated];
@@ -49,6 +52,10 @@
     
 }
 
+//set the titleField/timeLabel.texts using the project.title
+//set the titleFields delegate to self
+//set the dataSource.project to the project property
+//set the tableView.dataSouce to the dataSource property
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -68,6 +75,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Add action on storyboard create a newViewController and set the vcs property to the project property
 - (IBAction)add:(id)sender {
     
     TTCustomEntryViewController *entryViewController = [TTCustomEntryViewController new];
@@ -77,12 +85,14 @@
     
 }
 
+//create a new entry
 - (IBAction)clockIn:(id)sender {
 
     [self.project startNewEntry];
     [self.tableView reloadData];
 }
 
+//end the currentEntry
 - (IBAction)clockOut:(id)sender {
 
     [self.project endCurrentEntry];
@@ -99,18 +109,21 @@
     return YES;
 }
 
+//set the project.title to the textFields.text
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
     self.project.title = textField.text;
     [[ProjectController sharedInstance] synchronize];
     
     return YES;
 }
-
+//Create a MFMailCompseViewController
+//set the delegate on the mailComposrVC
 - (IBAction)sendEmail:(id)sender {
     
     MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
     mailViewController.mailComposeDelegate = self;
     
+    //Create a message body
     NSString *messageBody;
     
     for (Entry *entry in self.project.entries) {
@@ -122,13 +135,14 @@
         
         }
     }
-
+    
+    //set the message body to the message body string
     [mailViewController setMessageBody:messageBody isHTML:NO];
     
     [self presentViewController:mailViewController animated:YES completion:nil];
     
 }
-
+//enable the cancel button
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -11,10 +11,12 @@
 
 @implementation TTListDataSource
 
+//Set the number of rows using the projects array
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [[ProjectController sharedInstance].projects count];
 }
 
+//Set the cells textLabel and detailTextLabel using the project classes properties
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListCell"];
     if (cell == nil) {

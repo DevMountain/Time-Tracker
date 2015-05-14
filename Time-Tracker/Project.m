@@ -11,6 +11,7 @@
 
 #import "ProjectController.h"
 
+//Create static keys
 static NSString * const titleKey = @"title";
 static NSString * const entriesKey = @"entries";
 
@@ -22,11 +23,14 @@ static NSString * const entriesKey = @"entries";
 
 @implementation Project
 
+//set the title property to the title key of dictionary
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
         _title = dictionary[titleKey];
 
+        //Create an array and add all the entires for dictionary to the that array
+        //set the mutable array to the entire property
         NSMutableArray *entries = [NSMutableArray new];
         for (NSDictionary *entry in dictionary[entriesKey]) {
             [entries addObject:[[Entry alloc] initWithDictionary:entry]];
@@ -38,6 +42,7 @@ static NSString * const entriesKey = @"entries";
     return self;
 }
 
+//Create a project dictionary
 - (NSDictionary *)projectDictionary {
 
     NSMutableDictionary *projectDictionary = [NSMutableDictionary new];
@@ -54,13 +59,14 @@ static NSString * const entriesKey = @"entries";
     return projectDictionary;
 }
 
+
 - (NSString *)projectTime {
     
     NSInteger totalHours = 0;
     NSInteger totalMinutes = 0;
     
     for (Entry *entry in self.entries) {
-
+        //create a timeInterval between the endTime and the startTime
         NSTimeInterval distanceBetweenDates = [entry.endTime timeIntervalSinceDate:entry.startTime];
         
         // First we'll see how many hours
@@ -97,6 +103,9 @@ static NSString * const entriesKey = @"entries";
     [self synchronize];
 }
 
+//create a new entry
+//add a start time
+//add entry
 - (void)startNewEntry {
 
     Entry *entry = [Entry new];
@@ -108,6 +117,7 @@ static NSString * const entriesKey = @"entries";
     
 }
 
+//set the currentEntrys end time
 - (void)endCurrentEntry {
     
     self.currentEntry.endTime = [NSDate date];
@@ -115,6 +125,8 @@ static NSString * const entriesKey = @"entries";
     
 }
 
+//Create a mutable array of entires
+//add the object to that array and then set the entries property equal to the array
 - (void)addEntry:(Entry *)entry {
 
     if (!entry) {
@@ -128,6 +140,8 @@ static NSString * const entriesKey = @"entries";
 
 }
 
+//Create a mutable array of entires
+//remove the object to that array and then set the entries property equal to the array
 - (void)removeEntry:(Entry *)entry {
 
     if (!entry) {

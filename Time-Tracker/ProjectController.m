@@ -18,6 +18,7 @@ static NSString * const projectListKey = @"projectList";
 
 @implementation ProjectController
 
+//Create a shared instance
 + (ProjectController *)sharedInstance {
     static ProjectController *sharedInstance = nil;
     static dispatch_once_t onceToken;
@@ -29,12 +30,16 @@ static NSString * const projectListKey = @"projectList";
     return sharedInstance;
 }
 
+//set project property to the projects
 - (void)setProjects:(NSArray *)projects {
     _projects = projects;
     
     [self synchronize];
 }
 
+//Create a mutable array using projects array
+//add project to that array
+//set the projects array property to that array
 - (void)addProject:(Project *)project {
 
     if (!project) {
@@ -47,6 +52,9 @@ static NSString * const projectListKey = @"projectList";
     self.projects = mutableProject;
 }
 
+//Create a mutable array using projects array
+//remove project from that array
+//set the projects array property to that array
 - (void)removeProject:(Project *)project {
     
     if (!project) {
@@ -60,6 +68,7 @@ static NSString * const projectListKey = @"projectList";
     
 }
 
+//load the projectDictionary from NSUserDefaults
 - (void)loadFromDefaults {
     
     NSArray *projectDictionaries = [[NSUserDefaults standardUserDefaults] objectForKey:projectListKey];
@@ -73,6 +82,7 @@ static NSString * const projectListKey = @"projectList";
     
 }
 
+//synchornize the projectDictionary into NSUserDefaults
 - (void)synchronize {
     
     NSMutableArray *projectDictionaries = [NSMutableArray new];

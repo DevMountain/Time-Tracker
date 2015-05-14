@@ -11,10 +11,12 @@
 
 @implementation TTDetailDataSource
 
+//set the numbder of rows using the entries property on the project
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.project.entries count];
 }
 
+//Create a new entry using the entries array and the indexPath
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EntryCell"];
     if (cell == nil) {

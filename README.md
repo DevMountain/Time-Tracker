@@ -3,11 +3,11 @@ Time-Tracker
 
 An iOS app with time tracking
 
-###Step 1: Create the list view controller
+### Step 1: Create the list view controller
 - Either in Pomodoro or in a new app create a new ```ListViewController``` (list of ```Project``` instances)
 - Add it to the window's ```rootViewController``` inside of a navigation controller
 
-###Step 2: Setting up a tableViewDatasource
+### Step 2: Setting up a tableViewDatasource
 - Create a new datasource object (```ListTableViewDatasource``` subclass of NSObject)
 - Add the UITableViewDatasource protocol required methods
 - Add a ```dataSource``` property to your list viewcontroller (strong)
@@ -16,7 +16,7 @@ An iOS app with time tracking
 - Initialize the ```tableView``` and add it to the viewcontroller's view
 - Set the datasource of ```tableView``` to your ```dataSource``` property
 
-###Step 3: Create a model and model controller
+### Step 3: Create a model and model controller
 *See "Entries" for a sample project*
 - Create a ```Project``` class with necessary properties
   - Each ```Project``` instance should hold an array of ```Entries``
@@ -33,7 +33,7 @@ An iOS app with time tracking
 - Now you can use the ```ProjectController``` for the row count and row value for the ```tableView```
   - Use the ```title``` Property of Project for the cell label
 
-###Step 4: Add a ```DetailViewController``` (```Project``` instance detail)
+### Step 4: Add a ```DetailViewController``` (```Project``` instance detail)
 - Create a ```DetailViewController``` with an XIB file
 - Add a ```titleTextField``` for the title
 - Add a ```timeLabel``` to show the total time
@@ -47,19 +47,19 @@ An iOS app with time tracking
   - Clock Out
   - Report
 
-###Step 5: Add UITextFieldDelegate methods to capture the title
+### Step 5: Add UITextFieldDelegate methods to capture the title
 - Add the textFieldShouldReturn method to dismiss the Keyboard
 - Add a textFieldShouldEndEditing method to store the text of the ```titleTextField``` as the ```project.title```
 - Wire files owner as the delegate of the text field in the XIB file
 
-###Step 6: Add a datasource for the tableview
+### Step 6: Add a datasource for the tableview
 - Create a new datasource object (```DetailTableViewDatasource``` subclass of NSObject)
 - Add the UITableViewDataSource protocol required methods
 - Add a ```dataSource``` property to your ```DetailViewController``` (strong)
 - Initialize the ```dataSource``` in the init method
 - Set the ```self.tableView.dataSource``` to your ```dataSource``` property
 
-###Step 7: Show a list of entries
+### Step 7: Show a list of entries
 - Add a public ```Project``` property to the ```DetailViewController```
 - In the didSelectRow method in the ```ListViewController``` set the ```DetailViewController```'s ```Project``` property as the ```project``` in the ```ProjectController```'s project list at the index selected
 - Add a public ```Project``` property to the ```DetailTableViewDatasource```
@@ -68,7 +68,7 @@ An iOS app with time tracking
 - Set the cell's ```textLabel.text``` to the ```entry```'s start and end date
   - Feel free to format them if you'd like it to look pretty: [http://gtiapps.com/?p=1086](http://gtiapps.com/?p=1086)
 
-###Step 8: Add a Clock In and Clock Out method to the ```Project``` object
+### Step 8: Add a Clock In and Clock Out method to the ```Project``` object
 - Add a method ```startNewEntry```
   - In that method create a new ```Entry```, and set the start time to now
   - Store that entry as a ```currentEntry``` private property of ```Project```
@@ -77,7 +77,7 @@ An iOS app with time tracking
 - Call those methods when the user selects clockIn or clockOut BarButtonItems on your UIToolBar
   - Be sure to reload the ```tableView```'s data
 
-###Step 9: Create a custom entry screen
+### Step 9: Create a custom entry screen
 - Create a new ```CustomEntryViewController``` with an XIB file
 - Add a public ```Project``` property to your ```CustomEntryViewController```
 - Add a *fake* navigation bar 
@@ -90,7 +90,7 @@ An iOS app with time tracking
 - In both the ```save``` and ```cancel``` method call "dismissViewController"
 - In the add method of the ```DetailViewController```, instantiate a ```CustomEntryViewController```, set the ```project``` property, and call "presentViewController" to show it
 
-###Step 10: Add reporting
+### Step 10: Add reporting
 - Add the MessageUI library to your project
 - In the report method, instantiate an MFMailComposeViewController 
 - Create a string of all of the entry times (loop through the ```entries``` and append the times to the string)
